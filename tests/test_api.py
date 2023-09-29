@@ -6,13 +6,14 @@ from leetcode_0007_reverse_integer import api
 
 
 @pytest.mark.parametrize(
-    ["result", ...],
+    ["result", "x"],
     (
-        [..., ...],
-        [..., ...],
-    )
+        [321, 123],
+        [-321, -123],
+        [21, 120],
+    ),
 )
-def test_reverse_integer(result, ...) -> None:
+def test_reverse_integer(result, x) -> None:
     """Tests solution for problem Reverse Integer"""
 
     assert api.reverse_integer(...) == result
