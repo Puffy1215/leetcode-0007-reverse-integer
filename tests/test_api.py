@@ -13,7 +13,7 @@ from leetcode_0007_reverse_integer import api
         [21, 120],
     ),
 )
-def test_reverse_integer(result, x) -> None:
+def test_reverse_integer(result, x: int) -> None:
     """Tests solution for problem Reverse Integer"""
 
-    assert api.reverse_integer(...) == result
+    assert api.reverse_integer(x) == result
