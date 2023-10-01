@@ -13,4 +13,12 @@ def reverse_integer(x: int) -> int:
 
     assert _check_preconditions(x)
 
-    pass
+    sign = 1 if x == abs(x) else -1
+    x = abs(x)
+
+    y = 0
+    while x > 0:
+        y = y * 10 + (x % 10)
+        x = x // 10
+
+    return sign * y
