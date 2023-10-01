@@ -11,6 +11,8 @@ from leetcode_0007_reverse_integer import api
         [321, 123],
         [-321, -123],
         [21, 120],
+        [api.X_MAX, 0],
+        [api.X_MIN, 0],
     ),
 )
 def test_reverse_integer(result, x: int) -> None:
