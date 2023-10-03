@@ -30,16 +30,45 @@ def _negmod(x: int) -> int:
     return (x % 10) - 10
 
 
+def _posstep(x: int, y: int) -> tuple[int, int]:
+    if y > X_MAX // 10:
+        return 0, 0
+    y = y * 10
+
+    m = _posmod(x)
+    if X_MAX - y < m:
+        return 0, 0
+
+    y = y + m
+    x = _posdiv(x)
+
+    return x, y
+
+
+def _negstep(x: int, y: int) -> tuple[int, int]:
+    if y < (X_MIN + 9) // 10:
+        return 0, 0
+    y = y * 10
+
+    m = _negmod(x)
+    if y - X_MIN < m:
+        return 0, 0
+
+    y = y + m
+    x = _negdiv(x)
+
+    return x, y
+
+
 def reverse_integer(x: int) -> int:
     """Solves problem Reverse Integer"""
 
     assert _check_preconditions(x)
 
-    div, mod = (_posdiv, _posmod) if x > 0 else (_negdiv, _negmod)
+    step = _posstep if x > 0 else _negstep
 
     y = 0
     while x != 0:
-        y = y * 10 + mod(x)
-        x = div(x)
+        x, y = step(x, y)
 
     return y
