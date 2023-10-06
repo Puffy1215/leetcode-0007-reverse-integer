@@ -15,7 +15,7 @@ from leetcode_0007_reverse_integer import api
         [0, api.X_MIN],
     ),
 )
-def test_reverse_integer(result, x: int) -> None:
+def test_reverse_integer(result: int, x: int) -> None:
     """Tests solution for problem Reverse Integer"""
 
     assert api.reverse_integer(x) == result
