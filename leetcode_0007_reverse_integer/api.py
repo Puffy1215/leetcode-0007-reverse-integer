@@ -27,7 +27,11 @@ def _posmod(x: int) -> int:
 
 def _negmod(x: int) -> int:
     assert x <= 0
-    return (x % 10) - 10
+    m = x % 10
+    if m == 0:
+        return m
+    else:
+        return m - 10
 
 
 def _posstep(x: int, y: int) -> tuple[int, int]:
